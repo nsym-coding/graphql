@@ -1,0 +1,65 @@
+:root {
+  --myBlue: rgba(16, 14, 50, 0.9);
+  --myGlow: rgb(195, 214, 236);
+  --myShadow: rgba(130, 77, 255, 0.6) -1px -1px 6px,
+    rgba(124, 127, 255, 0.6) 1px 1px 6px;
+}
+
+body {
+  background-color: var(--myBlue);
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+}
+
+#title {
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  font-size: xxx-large;
+  font-weight: 800;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  justify-content: center;
+  color: var(--myGlow);
+  text-shadow: var(--myShadow);
+}
+
+#header {
+  top: 10vh;
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  border: 2px dashed black;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.basic-info {
+  height: 100%;
+  width: 20%;
+  border: 1px solid white;
+  font-size: x-large;
+  font-weight: 800;
+  color: var(--myGlow);
+  text-shadow: var(--myShadow);
+  display: flex;
+  justify-content: center;
+}
+
+#graphs {
+  position: absolute;
+  top: 60vh;
+  width: 100%;
+  height: 40%;
+  border: 2px dashed black;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dropdowns {
+  height: 10%;
+  width: 15%;
+}

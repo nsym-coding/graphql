@@ -4,7 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Yonas' GraphQL</title>
   </head>
-  <body></body>
+  <body>
+    <div id="container">
+      <div id="title">YONAS MILLION</div>
+      <div id="header">
+        <div id="user-identification" class="basic-info">
+          User Identification
+        </div>
+        <div id="grades" class="basic-info">Grades</div>
+        <div id="skills" class="basic-info">Skills</div>
+        <div id="level" class="basic-info">Level</div>
+      </div>
+
+      <div id="graphs">
+        <select name="x-axis" id="x-axis" class="dropdowns">
+          <option value="projects">Projects</option>
+        </select>
+        <select name="graph-type" id="graph-type" class="dropdowns">
+          <option value="bar-chart">Bar Chart</option>
+        </select>
+        <select name="y-axis" id="y-axis" class="dropdowns">
+          <option value="xp">XP</option>
+        </select>
+      </div>
+    </div>
+  </body>
 </html>
