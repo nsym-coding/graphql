@@ -41,12 +41,13 @@ body {
   height: 100%;
   width: 20%;
   border: 1px solid white;
-  font-size: x-large;
+  font-size: larger;
   font-weight: 800;
   color: var(--myGlow);
   text-shadow: var(--myShadow);
   display: flex;
   justify-content: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 #graphs {
@@ -62,4 +63,22 @@ body {
 .dropdowns {
   height: 10%;
   width: 15%;
+}
+
+#label-container {
+  position: absolute;
+  top: 56vh;
+  width: 100%;
+  height: 3.5%;
+  display: flex;
+  justify-content: space-evenly;
+  border: 2px dashed silver;
+}
+
+.labels {
+  color: var(--myGlow);
+  text-shadow: var(--myShadow);
+  font-weight: 900;
+  font-size: x-large;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
