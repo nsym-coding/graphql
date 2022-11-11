@@ -17,11 +17,11 @@ const displayGradeData = (gradedata) => {
   let progressArray = gradedata.data.user[0].progresses;
   let dataResult = document.getElementById("grades");
   for (let i = 0; i < progressArray.length; i++) {
-    let projectNameAndGrade = document.createElement("div");
+    let projectNameAndGrade = document.createElement("p");
 
-    projectNameAndGrade.innerHTML = `Project Name: ${
+    projectNameAndGrade.innerHTML = `${
       progressArray[i].object.name
-    }\n\nGrade: ${progressArray[i].grade.toFixed(2)}&nbsp`;
+    }: ${progressArray[i].grade.toFixed(2)}&nbsp`;
 
     dataResult.appendChild(projectNameAndGrade);
   }
