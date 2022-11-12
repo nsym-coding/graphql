@@ -50,10 +50,14 @@ body {
 }
 
 #grades {
-  padding-top: 1vh;
   box-sizing: border-box;
   overflow-y: scroll;
-  font-size: medium;
+  /* font-size: medium; */
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
 }
 
 #grades > p {
