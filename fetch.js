@@ -1,7 +1,7 @@
 import * as qBody from "./queryBodies.js";
 import * as display from "./displayFuncs.js";
 
-function fetchGradeData() {
+const fetchGradeData = () => {
   fetch(
     `https://learn.01founders.co/api/graphql-engine/v1/graphql`,
     qBody.gradeQuery
@@ -10,7 +10,7 @@ function fetchGradeData() {
     .then(function (gradedata) {
       display.displayGradeData(gradedata);
     });
-}
+};
 
 const fetchUserIdData = () => {
   fetch(
@@ -23,4 +23,15 @@ const fetchUserIdData = () => {
     });
 };
 
-export { fetchGradeData, fetchUserIdData };
+const fetchTotalXPData = () => {
+  fetch(
+    `https://learn.01founders.co/api/graphql-engine/v1/graphql`,
+    qBody.totalXPQuery
+  )
+    .then((res) => res.json())
+    .then(function (totalXpData) {
+      display.displayTotalXpData(totalXpData);
+    });
+};
+
+export { fetchGradeData, fetchUserIdData, fetchTotalXPData };

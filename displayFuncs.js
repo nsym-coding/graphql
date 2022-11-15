@@ -29,4 +29,24 @@ const displayUserIdData = (userIdData) => {
   userInfoDiv.appendChild(userCampus);
 };
 
-export { displayGradeData, displayUserIdData };
+const displayTotalXpData = (totalXpData) => {
+  console.log(totalXpData.data.transaction);
+  let xpArray = totalXpData.data.transaction;
+  let totalXpDiv = document.getElementById("xp");
+  let totalXPAmount = 0;
+  let maxXPAmount = xpArray[0].amount;
+
+  let totalXP = document.createElement("p");
+  let maxXP = document.createElement("p");
+
+  for (let i = 0; i < xpArray.length; i++) {
+    totalXPAmount += xpArray[i].amount;
+  }
+  maxXP.innerHTML = `Most XP:\n\n ${xpArray[0].object.name} -> ${maxXPAmount}`;
+
+  totalXP.innerHTML = `Total XP: ${totalXPAmount}`;
+  totalXpDiv.appendChild(totalXP);
+  totalXpDiv.appendChild(maxXP);
+};
+
+export { displayGradeData, displayUserIdData, displayTotalXpData };

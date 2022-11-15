@@ -24,4 +24,17 @@ const userIDQueryString = `{
   
 }`;
 
-export { gradeQueryString, userIDQueryString };
+const totalXPQueryString = `{
+  transaction(
+    order_by: {amount: desc}
+    where: {_and: [{user: {id: {_eq: 1344}}}, {object: {type: {_eq: "project"}}}, {type: {_eq: "xp"}}, {user:{progresses:{isDone:{_eq:true}}}}]}
+  ) {
+    object{
+      name
+    }
+    amount
+    
+  }
+}`;
+
+export { gradeQueryString, userIDQueryString, totalXPQueryString };
