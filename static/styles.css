@@ -1,8 +1,8 @@
 :root {
-  --myBlue: rgba(16, 14, 50, 0.9);
+  --myBlue: rgba(3, 2, 32, 0.9);
   --myGlow: rgb(195, 214, 236);
-  --myShadow: rgba(130, 77, 255, 0.6) -1px -1px 6px,
-    rgba(124, 127, 255, 0.6) 1px 1px 6px;
+  --myShadow: rgba(113, 255, 77, 0.6) -1px -1px 6px,
+    rgba(124, 255, 124, 0.6) 1px 1px 6px;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
   height: 40%;
   width: 100%;
   position: absolute;
-  border: 2px dashed rgb(231, 231, 231);
+
   display: flex;
   justify-content: space-evenly;
 }
@@ -40,7 +40,7 @@ body {
 .basic-info {
   height: 100%;
   width: 30%;
-  border: 1px solid white;
+
   font-size: larger;
   font-weight: 800;
   color: var(--myGlow);
@@ -93,7 +93,6 @@ h2 {
   height: 3.5%;
   display: flex;
   justify-content: space-evenly;
-  border: 2px dashed silver;
 }
 
 .labels {
