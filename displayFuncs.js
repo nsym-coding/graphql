@@ -30,23 +30,55 @@ const displayUserIdData = (userIdData) => {
 };
 
 const displayTotalXpData = (totalXpData) => {
-  console.log(totalXpData.data.transaction);
-  let xpArray = totalXpData.data.transaction;
+  console.log(totalXpData.data.user[0].transactions);
+
+  let xpArray = totalXpData.data.user[0].transactions;
+  let totalXpFromProject = 0;
+  let maxXpFromProject = xpArray[0].amount;
+  let minXpFromProject = xpArray[0].amount;
+  let maxXP = document.createElement("p");
+  let minXP = document.createElement("p");
+  for (let i = 0; i < xpArray.length; i++) {
+    console.log(xpArray[i].amount);
+    console.log(xpArray[i].object.name);
+    if (xpArray[i].amount >= maxXpFromProject) {
+      maxXpFromProject = xpArray[i].amount;
+      maxXP.innerHTML = `Max: ${xpArray[i].object.name} = ${
+        maxXpFromProject / 1000
+      }KB`;
+    }
+    if (xpArray[i].amount < minXpFromProject && xpArray[i].amount >= 5000) {
+      minXpFromProject = xpArray[i].amount;
+      minXP.innerHTML = `Min: ${xpArray[i].object.name} = ${
+        minXpFromProject / 1000
+      }KB`;
+    }
+    if (xpArray[i].amount > 9000) {
+      totalXpFromProject += xpArray[i].amount;
+    } else if (
+      (xpArray[i].amount >= 5000 && xpArray[i].object.name === "ascii-art") ||
+      xpArray[i].object.name === "ascii-art-color" ||
+      xpArray[i].object.name === "ascii-art-fs" ||
+      xpArray[i].object.name === "ascii-art-output" ||
+      xpArray[i].object.name === "go-reloaded"
+    ) {
+      totalXpFromProject += xpArray[i].amount;
+    }
+  }
+  let avgXpPerProject = totalXpFromProject / xpArray.length;
+
   let totalXpDiv = document.getElementById("xp");
-  let totalXPAmount = 0;
-  let maxXPAmount = xpArray[0].amount;
 
   let totalXP = document.createElement("p");
-  let maxXP = document.createElement("p");
 
-  for (let i = 0; i < xpArray.length; i++) {
-    totalXPAmount += xpArray[i].amount;
-  }
-  maxXP.innerHTML = `Most XP:\n\n ${xpArray[0].object.name} -> ${maxXPAmount}`;
+  let avgXP = document.createElement("p");
 
-  totalXP.innerHTML = `Total XP: ${totalXPAmount}`;
+  totalXP.innerHTML = `Total: ${totalXpFromProject / 1000}KB`;
+  avgXP.innerHTML = `Avg: ${(avgXpPerProject / 1000).toFixed(2)}KB`;
   totalXpDiv.appendChild(totalXP);
+  totalXpDiv.appendChild(avgXP);
   totalXpDiv.appendChild(maxXP);
+  totalXpDiv.appendChild(minXP);
 };
 
 export { displayGradeData, displayUserIdData, displayTotalXpData };

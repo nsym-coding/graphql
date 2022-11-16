@@ -25,15 +25,16 @@ const userIDQueryString = `{
 }`;
 
 const totalXPQueryString = `{
-  transaction(
-    order_by: {amount: desc}
-    where: {_and: [{user: {id: {_eq: 1344}}}, {object: {type: {_eq: "project"}}}, {type: {_eq: "xp"}}, {user:{progresses:{isDone:{_eq:true}}}}]}
-  ) {
-    object{
-      name
+  user(where: {login: {_eq: "nsym_coding"}}) {
+    transactions(
+      where: {_and: [{object: {type: {_eq: "project"}}}, {user: {login: {_eq: "nsym_coding"}}}, {type: {_eq: "xp"}}]}
+      order_by: {amount: desc}
+    ) {
+      amount
+      object {
+        name
+      }
     }
-    amount
-    
   }
 }`;
 

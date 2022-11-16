@@ -39,7 +39,7 @@ body {
 
 .basic-info {
   height: 100%;
-  width: 20%;
+  width: 30%;
   border: 1px solid white;
   font-size: larger;
   font-weight: 800;
@@ -50,6 +50,13 @@ body {
 }
 
 #grades {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  /* font-size: medium; */
+  align-items: center;
+}
+
+#xp {
   box-sizing: border-box;
   overflow-y: scroll;
   /* font-size: medium; */
