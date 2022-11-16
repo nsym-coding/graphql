@@ -43,13 +43,13 @@ const displayTotalXpData = (totalXpData) => {
     console.log(xpArray[i].object.name);
     if (xpArray[i].amount >= maxXpFromProject) {
       maxXpFromProject = xpArray[i].amount;
-      maxXP.innerHTML = `Max: ${xpArray[i].object.name} = ${
+      maxXP.innerHTML = `Max: ${xpArray[i].object.name} ${
         maxXpFromProject / 1000
       }KB`;
     }
     if (xpArray[i].amount < minXpFromProject && xpArray[i].amount >= 5000) {
       minXpFromProject = xpArray[i].amount;
-      minXP.innerHTML = `Min: ${xpArray[i].object.name} = ${
+      minXP.innerHTML = `Min: ${xpArray[i].object.name} ${
         minXpFromProject / 1000
       }KB`;
     }

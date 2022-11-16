@@ -1,8 +1,8 @@
 :root {
   --myBlue: rgba(3, 2, 32, 0.9);
-  --myGlow: rgb(195, 214, 236);
-  --myShadow: rgba(113, 255, 77, 0.6) -1px -1px 6px,
-    rgba(124, 255, 124, 0.6) 1px 1px 6px;
+  --myGlow: rgb(202, 236, 195);
+  --myShadow: rgba(21, 87, 5, 0.6) -1px -1px 6px,
+    rgba(11, 110, 11, 0.6) 1px 1px 6px;
 }
 
 body {
@@ -58,7 +58,7 @@ body {
 
 #xp {
   box-sizing: border-box;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   /* font-size: medium; */
   align-items: center;
 }
@@ -67,7 +67,7 @@ h2 {
   text-align: center;
 }
 
-#grades > p {
+p {
   align-items: center;
 }
 
