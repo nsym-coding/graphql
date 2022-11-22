@@ -1,5 +1,6 @@
 import * as qBody from "./queryBodies.js";
 import * as display from "./displayFuncs.js";
+import * as graphs from "./createGraphs.js";
 
 const fetchGradeData = () => {
   fetch(
@@ -31,6 +32,7 @@ const fetchTotalXPData = () => {
     .then((res) => res.json())
     .then(function (totalXpData) {
       display.displayTotalXpData(totalXpData);
+      graphs.createXpGraph(totalXpData);
     });
 };
 
