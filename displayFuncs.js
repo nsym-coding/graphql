@@ -53,14 +53,9 @@ const displayTotalXpData = (totalXpData) => {
         minXpFromProject / 1000
       }KB`;
     }
-    if (xpArray[i].amount > 9000) {
-      totalXpFromProject += xpArray[i].amount;
-    } else if (
-      (xpArray[i].amount >= 5000 && xpArray[i].object.name === "ascii-art") ||
-      xpArray[i].object.name === "ascii-art-color" ||
-      xpArray[i].object.name === "ascii-art-fs" ||
-      xpArray[i].object.name === "ascii-art-output" ||
-      xpArray[i].object.name === "go-reloaded"
+    if (
+      xpArray[i].amount > 9000 ||
+      (xpArray[i].amount >= 5000 && xpArray[i].object.name !== "forum")
     ) {
       totalXpFromProject += xpArray[i].amount;
     }
