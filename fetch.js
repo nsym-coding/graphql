@@ -1,6 +1,7 @@
 import * as qBody from "./queryBodies.js";
 import * as display from "./displayFuncs.js";
-import * as graphs from "./createGraphs.js";
+import * as barChart from "./createBarGraph.js";
+import * as pieChart from "./createPieChart.js";
 
 const fetchGradeData = () => {
   fetch(
@@ -32,7 +33,8 @@ const fetchTotalXPData = () => {
     .then((res) => res.json())
     .then(function (totalXpData) {
       display.displayTotalXpData(totalXpData);
-      graphs.createXpGraph(totalXpData);
+      barChart.createXpGraph(totalXpData);
+      pieChart.xpPieChart(totalXpData);
     });
 };
 
