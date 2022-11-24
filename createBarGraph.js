@@ -17,21 +17,20 @@ function createXpGraph(totalXpData) {
         "http://www.w3.org/2000/svg",
         "rect"
       );
-      const labelText = document.createElement("text");
+      const labelText = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "text"
+      );
       g.setAttribute("class", "bar");
       bar.setAttribute("x", `${yAxis}`);
       bar.setAttribute("y", `${10}`);
       bar.setAttribute("width", `${1000 / xpArray.length}px`);
       bar.setAttribute("height", `${(elem.amount / 1000) * 4}`);
-      bar.innerHTML = `${elem.object.name}`;
+      labelText.setAttribute("class", "bar-chart-text");
 
-      console.log("checking name is working --> ", elem.object.name);
-      labelText.innerText = `${elem.object.name}`;
-      labelText.setAttribute("x", `${0}`);
+      labelText.innerHTML += `${elem.object.name}</text>`;
+      labelText.setAttribute("x", `${yAxis}`);
       labelText.setAttribute("y", `${10}`);
-      labelText.setAttribute("dx", `${0.35}em`);
-
-      console.log(elem.amount);
 
       g.appendChild(bar);
       g.appendChild(labelText);

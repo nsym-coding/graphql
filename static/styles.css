@@ -95,20 +95,26 @@ p {
   position: absolute;
 
   left: 3vw;
-  top: 15vh;
+  top: 3vh;
   transform: scale(-1, -1);
   /* transform: scaleX(-1); */
 }
+
+#bar-chart :hover {
+  fill: greenyellow;
+}
 rect {
   fill: var(--myGlow);
-}
-text {
-  color: var(--myGlow);
-  text-anchor: middle;
 }
 
 #pie-chart {
   position: absolute;
   top: 0vh;
   left: 50vw;
+}
+
+.bar-chart-text {
+  color: var(--myGlow);
+
+  font-size: medium;
 }
