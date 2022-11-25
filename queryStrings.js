@@ -38,4 +38,54 @@ const totalXPQueryString = `{
   }
 }`;
 
-export { gradeQueryString, userIDQueryString, totalXPQueryString };
+const xpPerTypeQueryString = `query{
+  user(where:{_and:[{id:{_eq:1344}}, {progresses:{isDone:{_eq:true}}}]}){
+   a: transactions(limit:50 offset:0 where:{type:{_eq:"xp"}} order_by:{amount:desc}){
+      object{
+        name
+        type
+      }
+      amount
+    }
+    b: transactions(limit:50 offset:50 where:{type:{_eq:"xp"}}order_by:{amount:desc}){
+      object{
+        name
+        type
+      }
+      amount
+    }
+    c: transactions(limit:50 offset:100 where:{type:{_eq:"xp"}}order_by:{amount:desc}){
+      object{
+        name
+        type
+      }
+      amount
+    }
+    d: transactions(limit:50 offset:150 where:{type:{_eq:"xp"}}order_by:{amount:desc}){
+      object{
+        name
+        type
+      }
+      amount
+    }
+    e: transactions(limit:50 offset:200 where:{_and:[{type:{_eq:"xp"}}]} order_by:{amount:desc}){
+      object{
+        name
+        type
+       reference{
+        type
+      }
+      }
+      amount
+    }
+   
+  }
+}
+  `;
+
+export {
+  gradeQueryString,
+  userIDQueryString,
+  totalXPQueryString,
+  xpPerTypeQueryString,
+};

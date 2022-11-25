@@ -40,8 +40,6 @@ const displayTotalXpData = (totalXpData) => {
   let minXP = document.createElement("p");
   //for (let i = 0; i < xpArray.length; i++) {
   xpArray.forEach((elem) => {
-    console.log(elem.amount);
-    console.log(elem.object.name);
     if (elem.amount >= maxXpFromProject) {
       maxXpFromProject = elem.amount;
       maxXP.innerHTML = `Max: ${elem.object.name} ${maxXpFromProject / 1000}KB`;

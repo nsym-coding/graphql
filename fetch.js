@@ -34,8 +34,23 @@ const fetchTotalXPData = () => {
     .then(function (totalXpData) {
       display.displayTotalXpData(totalXpData);
       barChart.createXpGraph(totalXpData);
-      pieChart.xpPieChart(totalXpData);
     });
 };
 
-export { fetchGradeData, fetchUserIdData, fetchTotalXPData };
+const fetchXPPerTypeData = () => {
+  fetch(
+    `https://learn.01founders.co/api/graphql-engine/v1/graphql`,
+    qBody.xpPerTypeQuery
+  )
+    .then((res) => res.json())
+    .then(function (xpPerTypeData) {
+      pieChart.xpPieChart(xpPerTypeData);
+    });
+};
+
+export {
+  fetchGradeData,
+  fetchUserIdData,
+  fetchTotalXPData,
+  fetchXPPerTypeData,
+};
