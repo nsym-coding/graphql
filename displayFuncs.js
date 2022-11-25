@@ -38,28 +38,27 @@ const displayTotalXpData = (totalXpData) => {
   let minXpFromProject = xpArray[0].amount;
   let maxXP = document.createElement("p");
   let minXP = document.createElement("p");
-  for (let i = 0; i < xpArray.length; i++) {
-    console.log(xpArray[i].amount);
-    console.log(xpArray[i].object.name);
-    if (xpArray[i].amount >= maxXpFromProject) {
-      maxXpFromProject = xpArray[i].amount;
-      maxXP.innerHTML = `Max: ${xpArray[i].object.name} ${
-        maxXpFromProject / 1000
-      }KB`;
+  //for (let i = 0; i < xpArray.length; i++) {
+  xpArray.forEach((elem) => {
+    console.log(elem.amount);
+    console.log(elem.object.name);
+    if (elem.amount >= maxXpFromProject) {
+      maxXpFromProject = elem.amount;
+      maxXP.innerHTML = `Max: ${elem.object.name} ${maxXpFromProject / 1000}KB`;
     }
-    if (xpArray[i].amount < minXpFromProject && xpArray[i].amount >= 5000) {
-      minXpFromProject = xpArray[i].amount;
-      minXP.innerHTML = `Min: ${xpArray[i].object.name} ${
-        minXpFromProject / 1000
-      }KB`;
+    if (elem.amount < minXpFromProject && elem.amount >= 5000) {
+      minXpFromProject = elem.amount;
+      minXP.innerHTML = `Min: ${elem.object.name} ${minXpFromProject / 1000}KB`;
     }
     if (
-      xpArray[i].amount > 9000 ||
-      (xpArray[i].amount >= 5000 && xpArray[i].object.name !== "forum")
+      elem.amount > 9000 ||
+      (elem.amount >= 5000 && elem.object.name !== "forum")
     ) {
-      totalXpFromProject += xpArray[i].amount;
+      totalXpFromProject += elem.amount;
     }
-  }
+  });
+
+  //}
   let avgXpPerProject = totalXpFromProject / xpArray.length;
 
   let totalXpDiv = document.getElementById("xp");

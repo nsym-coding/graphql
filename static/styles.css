@@ -93,7 +93,7 @@ p {
 
 #graphs h2 {
   position: absolute;
-  top: 0vh;
+  top: -1vh;
   left: 0vw;
   color: var(--myGlow);
   text-shadow: var(--myShadow);
@@ -105,7 +105,7 @@ p {
   position: absolute;
   height: 50vh;
   left: -14vw;
-  top: 6vh;
+  top: 4vh;
   /* transform: scale(-1, -1); */
   /* transform: scaleX(-1); */
 }

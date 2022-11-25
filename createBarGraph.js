@@ -4,7 +4,7 @@ function createXpGraph(totalXpData) {
   xpArray = xpArray.reverse();
 
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("height", `${100}%`);
+  svg.setAttribute("height", `${90}%`);
   svg.setAttribute("width", `${70}%`);
   svg.setAttribute("id", "bar-chart");
   svg.setAttribute("viewBox", `0 0 1000 1000`);
