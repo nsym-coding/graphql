@@ -17,9 +17,12 @@ const xpPieChart = (totalXpData) => {
   backgroundCircle.setAttribute("fill", "white");
   backgroundCircle.setAttribute("cx", "10");
   backgroundCircle.setAttribute("cy", "10");
+
   pieChart.appendChild(backgroundCircle);
 
+  let sliceOffset = 0;
   for (let i = 0; i < xpArray.length; i++) {
+    let xpPercentage = (((100 / 585000) * xpArray[i].amount) / 100) * 31.42;
     if (
       xpArray[i].amount > 9000 ||
       (xpArray[i].amount >= 5000 && xpArray[i].object.name !== "forum")
@@ -28,25 +31,24 @@ const xpPieChart = (totalXpData) => {
         "http://www.w3.org/2000/svg",
         "circle"
       );
-      let sliceOffset = 0;
-      let xpPercentage = (xpArray[i].amount / 585000) * 31.42 * 4;
+
       console.log({ xpPercentage });
       pieSlice.setAttribute("r", "5");
       pieSlice.setAttribute("fill", "transparent");
       pieSlice.setAttribute("cx", "10");
       pieSlice.setAttribute("cy", "10");
-      if (i % 2 === 0) pieSlice.setAttribute("stroke", CSS_COLOR_NAMES[i]);
-      if (i % 2 !== 0) pieSlice.setAttribute("stroke", CSS_COLOR_NAMES[i + 1]);
+      pieSlice.setAttribute("stroke", CSS_COLOR_NAMES[i]);
+      // if (i % 2 !== 0) pieSlice.setAttribute("stroke", CSS_COLOR_NAMES[i + 2]);
       pieSlice.setAttribute("stroke-width", "10");
       pieSlice.setAttribute("stroke-dasharray", `${xpPercentage} 31.42`);
-      pieSlice.setAttribute("stroke-dashoffset", `-${sliceOffset}`);
+      pieSlice.setAttribute("stroke-dashoffset", `${sliceOffset}`);
       //calc(${(xpArray[i].amount * 31.42) / 100} 31.42")
-      // pieSlice.setAttribute("transform", "rotate(-90) translate(-20)");
+      pieChart.setAttribute("transform", "rotate(-90) translate(-20)");
       // pieSlice.setAttribute("stroke", "blue");
       pieChart.appendChild(pieSlice);
-      sliceOffset += xpPercentage;
-      graphDiv.appendChild(pieChart);
     }
+    sliceOffset += xpPercentage;
+    graphDiv.appendChild(pieChart);
   }
 };
 
