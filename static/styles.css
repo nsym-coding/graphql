@@ -76,9 +76,9 @@ p {
 #graphs {
   position: absolute;
   top: 60vh;
-  width: 100%;
-  height: 60%;
-  border: 2px dashed black;
+  width: 80%;
+  height: 50%;
+  /* border: 2px dashed black; */
   display: flex;
   justify-content: space-evenly;
 }
@@ -93,10 +93,10 @@ p {
 
 #bar-chart {
   position: absolute;
-
-  left: 3vw;
-  top: 3vh;
-  transform: scale(-1, -1);
+  height: 50vh;
+  left: -14vw;
+  top: 6vh;
+  /* transform: scale(-1, -1); */
   /* transform: scaleX(-1); */
 }
 
@@ -114,7 +114,7 @@ rect {
 }
 
 .bar-chart-text {
-  color: var(--myGlow);
-
-  font-size: medium;
+  color: white;
+  font-family: var(--myFont);
+  font-size: xx-large;
 }

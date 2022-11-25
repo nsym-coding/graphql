@@ -2,10 +2,10 @@ function createXpGraph(totalXpData) {
   let graphDiv = document.getElementById("graphs");
   let xpArray = totalXpData.data.user[0].transactions;
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("height", `${70}%`);
-  svg.setAttribute("width", `${50}%`);
+  svg.setAttribute("height", `${100}%`);
+  svg.setAttribute("width", `${70}%`);
   svg.setAttribute("id", "bar-chart");
-  svg.setAttribute("viewBox", `0 0 500 500`);
+  svg.setAttribute("viewBox", `0 0 1000 1000`);
   let yAxis = 0;
   xpArray.forEach((elem) => {
     if (
@@ -22,15 +22,19 @@ function createXpGraph(totalXpData) {
         "text"
       );
       g.setAttribute("class", "bar");
-      bar.setAttribute("x", `${yAxis}`);
-      bar.setAttribute("y", `${10}`);
-      bar.setAttribute("width", `${1000 / xpArray.length}px`);
-      bar.setAttribute("height", `${(elem.amount / 1000) * 4}`);
+      bar.setAttribute("x", `${0}`);
+      bar.setAttribute("y", `${yAxis}`);
+      bar.setAttribute("width", `${(elem.amount / 1000) * 4}`);
+      bar.setAttribute("height", ` ${1000 / xpArray.length}px`);
+
       labelText.setAttribute("class", "bar-chart-text");
 
-      labelText.innerHTML += `${elem.object.name}</text>`;
-      labelText.setAttribute("x", `${yAxis}`);
-      labelText.setAttribute("y", `${10}`);
+      labelText.innerHTML += `${elem.object.name} -> ${
+        elem.amount / 1000
+      }KB</text>`;
+      labelText.setAttribute("x", `${(elem.amount / 1000) * 4}`);
+      labelText.setAttribute("y", `${yAxis + 30}`);
+      labelText.setAttribute("dx", `${(elem.amount / 1000) * 4 + 10}`);
 
       g.appendChild(bar);
       g.appendChild(labelText);
