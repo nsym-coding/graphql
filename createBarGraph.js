@@ -1,6 +1,8 @@
 function createXpGraph(totalXpData) {
   let graphDiv = document.getElementById("graphs");
   let xpArray = totalXpData.data.user[0].transactions;
+  xpArray = xpArray.reverse();
+
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("height", `${100}%`);
   svg.setAttribute("width", `${70}%`);
@@ -31,13 +33,13 @@ function createXpGraph(totalXpData) {
 
       labelText.innerHTML += `${elem.object.name} -> ${
         elem.amount / 1000
-      }KB</text>`;
+      }K </text>`;
       labelText.setAttribute("x", `${(elem.amount / 1000) * 4}`);
       labelText.setAttribute("y", `${yAxis + 30}`);
       labelText.setAttribute("dx", `${(elem.amount / 1000) * 4 + 10}`);
 
-      g.appendChild(bar);
       g.appendChild(labelText);
+      g.appendChild(bar);
       svg.appendChild(g);
       graphDiv.appendChild(svg);
       yAxis += 50;
