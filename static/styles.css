@@ -91,6 +91,16 @@ p {
   font-family: var(--myFont);
 }
 
+#graphs h2 {
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
+  color: var(--myGlow);
+  text-shadow: var(--myShadow);
+  font-family: var(--myFont);
+  font-size: small;
+}
+
 #bar-chart {
   position: absolute;
   height: 50vh;
