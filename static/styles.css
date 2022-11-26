@@ -91,10 +91,20 @@ p {
   font-family: var(--myFont);
 }
 
-#graphs h2 {
+#bar-chart-title {
   position: absolute;
   top: -1vh;
   left: 0vw;
+  color: var(--myGlow);
+  text-shadow: var(--myShadow);
+  font-family: var(--myFont);
+  font-size: small;
+}
+
+#pie-chart-title {
+  position: absolute;
+  top: -1vh;
+  left: 61vw;
   color: var(--myGlow);
   text-shadow: var(--myShadow);
   font-family: var(--myFont);
@@ -119,7 +129,7 @@ rect {
 
 #pie-chart {
   position: absolute;
-  top: 0vh;
+  top: 10vh;
   height: 90%;
   width: 50%;
   left: 50vw;
