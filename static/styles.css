@@ -121,7 +121,7 @@ p {
 }
 
 #bar-chart :hover {
-  fill: var(--myGlow);
+  fill: yellow;
 }
 rect {
   fill: var(--myGlow);
