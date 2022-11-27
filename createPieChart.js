@@ -28,25 +28,33 @@ const xpPieChart = (xpPerTypeData) => {
     }
   });
 
+  console.log({ totalXPAmount });
+
   let totalXpPerTypeArray = [];
 
   let projectXP = 0;
   let exerciseXP = 0;
   let piscineXP = 0;
+  let otherXP = 0;
   xpTypeArray.forEach((task) => {
     if (task.object.type === "project") {
       projectXP += task.amount;
-    }
-    if (task.object.type === "exercise") {
+    } else if (task.object.type === "exercise") {
       exerciseXP += task.amount;
-    }
-    if (task.object.type === "piscine") {
+    } else if (task.object.type === "piscine") {
       piscineXP += task.amount;
+    } else {
+      otherXP += task.amount;
     }
   });
 
-  totalXpPerTypeArray.push(projectXP, exerciseXP, piscineXP);
+  totalXpPerTypeArray.push(projectXP, exerciseXP, piscineXP, otherXP);
+  let totale = 0;
+  totalXpPerTypeArray.forEach((elem) => {
+    totale += elem;
+  });
   console.log({ totalXpPerTypeArray });
+  console.log({ totale });
 
   console.log({ totalXPAmount });
   console.log(xpTypeArray[0].amount);
@@ -110,6 +118,6 @@ const xpPieChart = (xpPerTypeData) => {
   console.log({ totalPercentage });
 };
 
-const CSS_COLOR_NAMES = ["Aqua", "Orange", "OrangeRed"];
+const CSS_COLOR_NAMES = ["Aqua", "Orange", "OrangeRed", "Green"];
 
 export { xpPieChart };
