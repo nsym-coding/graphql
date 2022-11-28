@@ -135,7 +135,7 @@ rect {
   left: 50vw;
 }
 
-.pie-slice :hover {
+.pie-chart :hover {
   fill: yellow;
 }
 
@@ -148,5 +148,5 @@ rect {
 .pie-chart-text {
   color: white;
   font-family: var(--myFont);
-  font-size: xx-large;
+  font-size: xx-small;
 }

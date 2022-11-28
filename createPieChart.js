@@ -127,9 +127,14 @@ const xpPieChart = (xpPerTypeData) => {
     labelText.setAttribute("class", "pie-chart-text");
 
     labelText.innerHTML += `${elem.type} -> ${elem.amount / 1000}K </text>`;
-    labelText.setAttribute("x", `${(elem.amount / 1000) * 4}`);
+
     //labelText.setAttribute("y", `${yAxis + 30}`);
-    labelText.setAttribute("cx", "1");
+    // labelText.setAttribute("dx", `${sliceOffset}`);
+    labelText.setAttribute("dy", `${sliceOffset}`);
+    labelText.setAttribute("y", `${sliceOffset}%`);
+    labelText.setAttribute("x", `${1}%`);
+    labelText.setAttribute("stroke-width", `${-12}px`);
+
     pieChart.appendChild(pieSlice);
     pieChart.appendChild(labelText);
     i++;
@@ -140,6 +145,6 @@ const xpPieChart = (xpPerTypeData) => {
   console.log({ totalPercentage });
 };
 
-const CSS_COLOR_NAMES = ["Aqua", "Orange", "OrangeRed", "Green"];
+const CSS_COLOR_NAMES = ["Yellow", "Green", "OrangeRed", "Gray"];
 
 export { xpPieChart };
