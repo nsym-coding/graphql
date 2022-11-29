@@ -139,6 +139,16 @@ rect {
   fill: yellow;
 }
 
+#pie-chart text {
+  position: absolute;
+  right: 18%;
+  top: 22%;
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 600;
+  opacity: 0;
+}
+
 .bar-chart-text {
   color: white;
   font-family: var(--myFont);

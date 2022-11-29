@@ -130,10 +130,10 @@ const xpPieChart = (xpPerTypeData) => {
 
     //labelText.setAttribute("y", `${yAxis + 30}`);
     // labelText.setAttribute("dx", `${sliceOffset}`);
-    labelText.setAttribute("dy", `${sliceOffset}`);
-    labelText.setAttribute("y", `${sliceOffset}%`);
-    labelText.setAttribute("x", `${1}%`);
-    labelText.setAttribute("stroke-width", `${-12}px`);
+    // labelText.setAttribute("dy", `${sliceOffset}`);
+    // labelText.setAttribute("y", `${sliceOffset}%`);
+    // labelText.setAttribute("x", `${1}%`);
+    // labelText.setAttribute("stroke-width", `${-12}px`);
 
     pieChart.appendChild(pieSlice);
     pieChart.appendChild(labelText);
