@@ -135,19 +135,24 @@ rect {
   left: 50vw;
 }
 
-.pie-chart :hover {
+/* #pie-chart :hover {
   fill: yellow;
-}
+} */
 
-#pie-chart text {
+/* #pie-chart text {
   position: absolute;
-  right: 18%;
+  left: 18%;
   top: 22%;
   font-size: 32px;
   color: #ffffff;
   font-weight: 600;
   opacity: 0;
-}
+} */
+
+/* circle :hover {
+  fill: yellow;
+  color: yellow;
+} */
 
 .bar-chart-text {
   color: white;
@@ -155,8 +160,8 @@ rect {
   font-size: xx-large;
 }
 
-.pie-chart-text {
+/* .pie-chart-text {
   color: white;
   font-family: var(--myFont);
   font-size: xx-small;
-}
+} */

@@ -115,6 +115,7 @@ const xpPieChart = (xpPerTypeData) => {
     pieSlice.setAttribute("class", "pie-slice");
 
     pieSlice.setAttribute("fill", "transparent");
+
     pieSlice.setAttribute("cx", "10");
     pieSlice.setAttribute("cy", "10");
     pieSlice.setAttribute("stroke", CSS_COLOR_NAMES[i]);
@@ -126,14 +127,39 @@ const xpPieChart = (xpPerTypeData) => {
 
     labelText.setAttribute("class", "pie-chart-text");
 
-    labelText.innerHTML += `${elem.type} -> ${elem.amount / 1000}K </text>`;
+    labelText.innerHTML += `${elem.type} -> ${elem.amount / 1000}K`;
 
-    //labelText.setAttribute("y", `${yAxis + 30}`);
-    // labelText.setAttribute("dx", `${sliceOffset}`);
-    // labelText.setAttribute("dy", `${sliceOffset}`);
-    // labelText.setAttribute("y", `${sliceOffset}%`);
-    // labelText.setAttribute("x", `${1}%`);
-    // labelText.setAttribute("stroke-width", `${-12}px`);
+    // labelText.setAttribute("dx", "10");
+    // labelText.setAttribute("dy", "10");
+    if (elem.type === "project") {
+      labelText.setAttribute("y", "15");
+      labelText.setAttribute("x", "5");
+    }
+    if (elem.type === "exercise") {
+      labelText.setAttribute("y", "5");
+      labelText.setAttribute("x", "5");
+    }
+    if (elem.type === "piscine") {
+      labelText.setAttribute("y", "12.5");
+      labelText.setAttribute("x", "10.5 ");
+      labelText.style.transform = `rotate(-15deg)`;
+    }
+    if (elem.type === "raid") {
+      labelText.setAttribute("y", "20");
+      labelText.setAttribute("x", "60");
+    }
+
+    // labelText.setAttribute("y", "10");
+    // labelText.setAttribute("x", "10");
+    labelText.setAttribute("font-size", "1px");
+    labelText.setAttribute("fill", "white");
+    pieSlice.addEventListener("pointerover", function () {
+      pieSlice.style.fill = "white";
+      // pieSlice.appendChild(labelText);
+    });
+    pieSlice.addEventListener("pointerleave", function () {
+      pieSlice.style.fill = "transparent";
+    });
 
     pieChart.appendChild(pieSlice);
     pieChart.appendChild(labelText);
