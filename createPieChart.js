@@ -37,7 +37,13 @@ const xpPieChart = (xpPerTypeData) => {
   let piscineXP = 0;
   let raidXP = 0;
   xpTypeArray.forEach((task) => {
-    if (task.object.type === "project") {
+    if (
+      (task.object.type === "project" && task.amount > 9000) ||
+      (task.object.type === "project" &&
+        task.amount >= 5000 &&
+        task.object.name !== "forum")
+    ) {
+      console.log("checking if it's project ---> ", task);
       projectXP += task.amount;
     } else if (task.object.type === "exercise") {
       exerciseXP += task.amount;
@@ -141,18 +147,19 @@ const xpPieChart = (xpPerTypeData) => {
     }
     if (elem.type === "piscine") {
       labelText.setAttribute("y", "12.5");
-      labelText.setAttribute("x", "10.5 ");
-      labelText.style.transform = `rotate(-15deg)`;
+      labelText.setAttribute("x", "9 ");
+      labelText.style.transform = `rotate(-19deg)`;
     }
     if (elem.type === "raid") {
-      labelText.setAttribute("y", "20");
-      labelText.setAttribute("x", "60");
+      labelText.setAttribute("y", "12.2");
+      labelText.setAttribute("x", "11.8");
+      labelText.style.transform = `rotate(-10deg)`;
     }
 
     // labelText.setAttribute("y", "10");
     // labelText.setAttribute("x", "10");
     labelText.setAttribute("font-size", "1px");
-    labelText.setAttribute("fill", "white");
+    labelText.setAttribute("fill", "black");
     pieSlice.addEventListener("pointerover", function () {
       pieSlice.style.fill = "white";
       // pieSlice.appendChild(labelText);
