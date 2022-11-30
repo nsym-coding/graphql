@@ -40,4 +40,14 @@ const xpPerTypeQuery = {
   }),
 };
 
-export { gradeQuery, userIDQuery, totalXPQuery, xpPerTypeQuery };
+const skillQuery = {
+  method: "post",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    query: query.skillQueryString,
+  }),
+};
+
+export { gradeQuery, userIDQuery, totalXPQuery, xpPerTypeQuery, skillQuery };

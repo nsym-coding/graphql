@@ -57,6 +57,20 @@ body {
   /* font-size: medium; */
   align-items: center;
 }
+#grades::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+#skill {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  /* font-size: medium; */
+  align-items: center;
+}
+
+#skill::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
 
 #xp {
   box-sizing: border-box;

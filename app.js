@@ -4,3 +4,4 @@ fetchFunc.fetchGradeData();
 fetchFunc.fetchUserIdData();
 fetchFunc.fetchTotalXPData();
 fetchFunc.fetchXPPerTypeData();
+fetchFunc.fetchSkillData();

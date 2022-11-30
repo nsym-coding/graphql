@@ -48,9 +48,20 @@ const fetchXPPerTypeData = () => {
     });
 };
 
+const fetchSkillData = () => {
+  fetch(
+    `https://learn.01founders.co/api/graphql-engine/v1/graphql`,
+    qBody.skillQuery
+  )
+    .then((res) => res.json())
+    .then(function (skillData) {
+      display.displaySkillData(skillData);
+    });
+};
 export {
   fetchGradeData,
   fetchUserIdData,
   fetchTotalXPData,
   fetchXPPerTypeData,
+  fetchSkillData,
 };

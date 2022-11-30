@@ -1,5 +1,4 @@
 const displayGradeData = (gradedata) => {
-  console.log(gradedata.data.user[0].progresses);
   let progressArray = gradedata.data.user[0].progresses;
   let dataResult = document.getElementById("grades");
   for (let i = 0; i < progressArray.length; i++) {
@@ -14,7 +13,6 @@ const displayGradeData = (gradedata) => {
 };
 
 const displayUserIdData = (userIdData) => {
-  console.log(userIdData.data.user[0].progresses[0].campus);
   let userInfoDiv = document.getElementById("user-identification");
   let userID = document.createElement("p");
   let userLogin = document.createElement("p");
@@ -30,8 +28,6 @@ const displayUserIdData = (userIdData) => {
 };
 
 const displayTotalXpData = (totalXpData) => {
-  console.log(totalXpData.data.user[0].transactions);
-
   let xpArray = totalXpData.data.user[0].transactions;
   let totalXpFromProject = 0;
   let maxXpFromProject = xpArray[0].amount;
@@ -73,4 +69,123 @@ const displayTotalXpData = (totalXpData) => {
   totalXpDiv.appendChild(minXP);
 };
 
-export { displayGradeData, displayUserIdData, displayTotalXpData };
+const displaySkillData = (skillData) => {
+  let skillDataArray = skillData.data.user[0].transactions;
+  let skills = {
+    go: {
+      amount: 0,
+    },
+    backEnd: {
+      amount: 0,
+    },
+    frontEnd: {
+      amount: 0,
+    },
+    js: {
+      amount: 0,
+    },
+    game: {
+      amount: 0,
+    },
+    html: {
+      amount: 0,
+    },
+    sysAdmin: {
+      amount: 0,
+    },
+    docker: {
+      amount: 0,
+    },
+    sql: {
+      amount: 0,
+    },
+    stats: {
+      amount: 0,
+    },
+    algo: {
+      amount: 0,
+    },
+    css: {
+      amount: 0,
+    },
+  };
+  console.log({ skillDataArray });
+  let totalSkillAmount = 0;
+  skillDataArray.forEach((skill) => {
+    switch (skill.type) {
+      case "skill_go":
+        totalSkillAmount += skill.amount;
+        skills.go.amount += skill.amount;
+      case "skill_js":
+        totalSkillAmount += skill.amount;
+
+        skills.js.amount += skill.amount;
+      case "skill_back-end":
+        totalSkillAmount += skill.amount;
+
+        skills.backEnd.amount += skill.amount;
+      case "skill_front-end":
+        totalSkillAmount += skill.amount;
+
+        skills.frontEnd.amount += skill.amount;
+      case "skill_game":
+        totalSkillAmount += skill.amount;
+
+        skills.game.amount += skill.amount;
+      case "skill_algo":
+        totalSkillAmount += skill.amount;
+
+        skills.algo.amount += skill.amount;
+      case "skill_stats":
+        totalSkillAmount += skill.amount;
+
+        skills.stats.amount += skill.amount;
+
+      case "skill_sql":
+        totalSkillAmount += skill.amount;
+
+        skills.sql.amount += skill.amount;
+      case "skill_sys-admin":
+        totalSkillAmount += skill.amount;
+
+        skills.sysAdmin.amount += skill.amount;
+      case "skill_docker":
+        totalSkillAmount += skill.amount;
+
+        skills.docker.amount += skill.amount;
+      case "skill_html":
+        totalSkillAmount += skill.amount;
+
+        skills.html.amount += skill.amount;
+      case "skill_css":
+        totalSkillAmount += skill.amount;
+
+        skills.css.amount += skill.amount;
+    }
+  });
+
+  let skillResult = document.getElementById("skill");
+
+  // for (const skill in skills) {
+  //   console.log(skill.amount);
+  //   let skillAndAmount = document.createElement("p");
+  //   skillAndAmount.innerHTML += `${skill} + ${skill.amount}`;
+  //   skillResult.appendChild(skillAndAmount);
+  // }
+
+  Object.entries(skills).forEach((skill) => {
+    let skillAndAmount = document.createElement("p");
+    skillAndAmount.innerHTML += ` ${skill[0]}: ${skill[1].amount}`;
+    skillResult.appendChild(skillAndAmount);
+  });
+
+  console.log({ totalSkillAmount });
+  console.log({ skills });
+};
+
+export {
+  displayGradeData,
+  displayUserIdData,
+  displayTotalXpData,
+  displaySkillData,
+};

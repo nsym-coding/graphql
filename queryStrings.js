@@ -83,9 +83,31 @@ const xpPerTypeQueryString = `query{
 }
   `;
 
+const skillQueryString = `{
+    user(where: {login: {_eq: "nsym_coding"}}) {
+      transactions(where:{_and:[{type:{_like:"%skill%"}}, {object:{type:{_eq:"project"}}}]}
+        order_by:{createdAt:desc}
+      ) {
+        createdAt
+        amount
+        type
+        path
+        user{
+          login
+        }
+        userId
+        object {
+          name
+          type
+        }
+      }
+    }
+  }`;
+
 export {
   gradeQueryString,
   userIDQueryString,
   totalXPQueryString,
   xpPerTypeQueryString,
+  skillQueryString,
 };

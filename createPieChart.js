@@ -1,6 +1,4 @@
 const xpPieChart = (xpPerTypeData) => {
-  console.log({ xpPerTypeData });
-  console.log(xpPerTypeData.data.user[0]);
   let xpTypeArray = [];
 
   xpPerTypeData.data.user[0].a.forEach((obj) => {
@@ -19,11 +17,6 @@ const xpPieChart = (xpPerTypeData) => {
     xpTypeArray.push(obj);
   });
 
-  console.log({ xpTypeArray });
-  for (const [key, value] of Object.entries(xpTypeArray)) {
-    console.log("key: ", key);
-    console.log("value: ", value);
-  }
   // let xpArray = totalXpData.data.user[0].transactions;
   let totalXPAmount = 0;
 
@@ -32,8 +25,6 @@ const xpPieChart = (xpPerTypeData) => {
       totalXPAmount += elem.amount;
     }
   });
-
-  console.log({ totalXPAmount });
 
   let totalXpPerTypeArray = [];
 
@@ -62,7 +53,6 @@ const xpPieChart = (xpPerTypeData) => {
         task.amount >= 5000 &&
         task.object.name !== "forum")
     ) {
-      console.log("checking if it's project ---> ", task);
       projectXPObject.amount += task.amount;
     } else if (task.object.type === "exercise") {
       exerciseXPObject.amount += task.amount;
@@ -98,10 +88,9 @@ const xpPieChart = (xpPerTypeData) => {
   pieChart.appendChild(backgroundCircle);
   let i = 0;
   let sliceOffset = 0;
-  let totalPercentage = 0;
+
   totalXpPerTypeArray.forEach((elem, index) => {
     let xpPercentage = (((100 / totalXPAmount) * elem.amount) / 100) * 31.42;
-    totalPercentage += xpPercentage;
 
     let pieSlice = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -168,7 +157,6 @@ const xpPieChart = (xpPerTypeData) => {
 
     graphDiv.appendChild(pieChart);
   });
-  console.log({ totalPercentage });
 };
 
 const CSS_COLOR_NAMES = ["Yellow", "Green", "OrangeRed", "Gray"];
