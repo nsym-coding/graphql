@@ -2,6 +2,7 @@ const xpPieChart = (xpPerTypeData) => {
   console.log({ xpPerTypeData });
   console.log(xpPerTypeData.data.user[0]);
   let xpTypeArray = [];
+
   xpPerTypeData.data.user[0].a.forEach((obj) => {
     xpTypeArray.push(obj);
   });
@@ -19,6 +20,10 @@ const xpPieChart = (xpPerTypeData) => {
   });
 
   console.log({ xpTypeArray });
+  for (const [key, value] of Object.entries(xpTypeArray)) {
+    console.log("key: ", key);
+    console.log("value: ", value);
+  }
   // let xpArray = totalXpData.data.user[0].transactions;
   let totalXPAmount = 0;
 
@@ -32,10 +37,24 @@ const xpPieChart = (xpPerTypeData) => {
 
   let totalXpPerTypeArray = [];
 
-  let projectXP = 0;
-  let exerciseXP = 0;
-  let piscineXP = 0;
-  let raidXP = 0;
+  let projectXPObject = {
+    type: "project",
+    amount: 0,
+  };
+  let exerciseXPObject = {
+    type: "exercise",
+    amount: 0,
+  };
+
+  let piscineXPObject = {
+    type: "piscine",
+    amount: 0,
+  };
+
+  let raidXPObject = {
+    type: "raid",
+    amount: 0,
+  };
   xpTypeArray.forEach((task) => {
     if (
       (task.object.type === "project" && task.amount > 9000) ||
@@ -44,35 +63,15 @@ const xpPieChart = (xpPerTypeData) => {
         task.object.name !== "forum")
     ) {
       console.log("checking if it's project ---> ", task);
-      projectXP += task.amount;
+      projectXPObject.amount += task.amount;
     } else if (task.object.type === "exercise") {
-      exerciseXP += task.amount;
+      exerciseXPObject.amount += task.amount;
     } else if (task.object.type === "piscine") {
-      piscineXP += task.amount;
+      piscineXPObject.amount += task.amount;
     } else {
-      raidXP += task.amount;
+      raidXPObject.amount += task.amount;
     }
   });
-
-  let projectXPObject = {
-    type: "project",
-    amount: projectXP,
-  };
-
-  let exerciseXPObject = {
-    type: "exercise",
-    amount: exerciseXP,
-  };
-
-  let piscineXPObject = {
-    type: "piscine",
-    amount: piscineXP,
-  };
-
-  let raidXPObject = {
-    type: "raid",
-    amount: raidXP,
-  };
 
   totalXpPerTypeArray.push(
     projectXPObject,
@@ -108,14 +107,12 @@ const xpPieChart = (xpPerTypeData) => {
       "http://www.w3.org/2000/svg",
       "circle"
     );
+    let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
     const labelText = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "text"
     );
     let proportion = (elem.amount / totalXPAmount) * 31.4;
-
-    console.log({ xpPercentage });
-    console.log({ index });
 
     pieSlice.setAttribute("r", "5");
     pieSlice.setAttribute("class", "pie-slice");
@@ -125,7 +122,7 @@ const xpPieChart = (xpPerTypeData) => {
     pieSlice.setAttribute("cx", "10");
     pieSlice.setAttribute("cy", "10");
     pieSlice.setAttribute("stroke", CSS_COLOR_NAMES[i]);
-    // if (i % 2 !== 0) pieSlice.setAttribute("stroke", CSS_COLOR_NAMES[i + 2]);
+
     pieSlice.setAttribute("stroke-width", "10");
     pieSlice.setAttribute("stroke-dasharray", `${xpPercentage} 31.42`);
 
@@ -135,8 +132,6 @@ const xpPieChart = (xpPerTypeData) => {
 
     labelText.innerHTML += `${elem.type} -> ${elem.amount / 1000}K`;
 
-    // labelText.setAttribute("dx", "10");
-    // labelText.setAttribute("dy", "10");
     if (elem.type === "project") {
       labelText.setAttribute("y", "15");
       labelText.setAttribute("x", "5");
@@ -156,20 +151,18 @@ const xpPieChart = (xpPerTypeData) => {
       labelText.style.transform = `rotate(-10deg)`;
     }
 
-    // labelText.setAttribute("y", "10");
-    // labelText.setAttribute("x", "10");
     labelText.setAttribute("font-size", "1px");
     labelText.setAttribute("fill", "black");
-    pieSlice.addEventListener("pointerover", function () {
-      pieSlice.style.fill = "white";
-      // pieSlice.appendChild(labelText);
+    g.addEventListener("mouseenter", function () {
+      labelText.style.fill = "aqua";
     });
-    pieSlice.addEventListener("pointerleave", function () {
-      pieSlice.style.fill = "transparent";
+    g.addEventListener("mouseleave", function () {
+      labelText.style.fill = "black";
     });
 
-    pieChart.appendChild(pieSlice);
-    pieChart.appendChild(labelText);
+    g.appendChild(pieSlice);
+    g.appendChild(labelText);
+    pieChart.appendChild(g);
     i++;
     sliceOffset += proportion;
 

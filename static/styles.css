@@ -135,8 +135,8 @@ rect {
   left: 50vw;
 }
 
-/* #pie-chart :hover {
-  fill: yellow;
+/* g :hover {
+  fill: black;
 } */
 
 /* #pie-chart text {
@@ -149,10 +149,10 @@ rect {
   opacity: 0;
 } */
 
-/* circle :hover {
+circle :hover {
   fill: yellow;
   color: yellow;
-} */
+}
 
 .bar-chart-text {
   color: white;
