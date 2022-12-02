@@ -1,5 +1,8 @@
 const xpPieChart = (xpPerTypeData) => {
   let xpTypeArray = [];
+  let typeName = document.getElementById("type-name");
+  let typeAmount = document.getElementById("type-xp");
+  console.log(typeName);
 
   xpPerTypeData.data.user[0].a.forEach((obj) => {
     xpTypeArray.push(obj);
@@ -17,7 +20,6 @@ const xpPieChart = (xpPerTypeData) => {
     xpTypeArray.push(obj);
   });
 
-  // let xpArray = totalXpData.data.user[0].transactions;
   let totalXPAmount = 0;
 
   xpTypeArray.forEach((elem) => {
@@ -116,41 +118,18 @@ const xpPieChart = (xpPerTypeData) => {
     pieSlice.setAttribute("stroke-dasharray", `${xpPercentage} 31.42`);
 
     pieSlice.setAttribute("stroke-dashoffset", `${-sliceOffset}`);
+    pieSlice.setAttribute("data-name", `${elem.type}`);
+    pieSlice.setAttribute("data-value", `${elem.amount}`);
+    console.log(elem.amount);
 
-    labelText.setAttribute("class", "pie-chart-text");
-
-    labelText.innerHTML += `${elem.type} -> ${elem.amount / 1000}K`;
-
-    if (elem.type === "project") {
-      labelText.setAttribute("y", "15");
-      labelText.setAttribute("x", "5");
-    }
-    if (elem.type === "exercise") {
-      labelText.setAttribute("y", "5");
-      labelText.setAttribute("x", "5");
-    }
-    if (elem.type === "piscine") {
-      labelText.setAttribute("y", "12.5");
-      labelText.setAttribute("x", "9 ");
-      labelText.style.transform = `rotate(-19deg)`;
-    }
-    if (elem.type === "raid") {
-      labelText.setAttribute("y", "12.2");
-      labelText.setAttribute("x", "11.8");
-      labelText.style.transform = `rotate(-10deg)`;
-    }
-
-    labelText.setAttribute("font-size", "1px");
-    labelText.setAttribute("fill", "black");
-    g.addEventListener("mouseenter", function () {
-      labelText.style.fill = "aqua";
-    });
-    g.addEventListener("mouseleave", function () {
-      labelText.style.fill = "black";
+    g.addEventListener("mousedown", function (e) {
+      typeName.innerHTML = e.target.dataset.name;
+      console.log(e.target.dataset.name);
+      typeAmount.innerHTML = e.target.dataset.value;
     });
 
     g.appendChild(pieSlice);
-    g.appendChild(labelText);
+
     pieChart.appendChild(g);
     i++;
     sliceOffset += proportion;

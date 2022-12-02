@@ -149,20 +149,6 @@ rect {
   left: 50vw;
 }
 
-/* g :hover {
-  fill: black;
-} */
-
-/* #pie-chart text {
-  position: absolute;
-  left: 18%;
-  top: 22%;
-  font-size: 32px;
-  color: #ffffff;
-  font-weight: 600;
-  opacity: 0;
-} */
-
 circle :hover {
   fill: yellow;
   color: yellow;
@@ -174,8 +160,13 @@ circle :hover {
   font-size: xx-large;
 }
 
-/* .pie-chart-text {
-  color: white;
+.pie-data {
+  display: flex;
+  position: absolute;
+  left: 50vw;
+  top: 20vh;
+  flex-direction: column;
   font-family: var(--myFont);
-  font-size: xx-small;
-} */
+  font-size: large;
+  color: var(--myGlow);
+}
