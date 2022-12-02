@@ -125,7 +125,7 @@ const xpPieChart = (xpPerTypeData) => {
     g.addEventListener("mousedown", function (e) {
       typeName.innerHTML = e.target.dataset.name;
       console.log(e.target.dataset.name);
-      typeAmount.innerHTML = e.target.dataset.value;
+      typeAmount.innerHTML = e.target.dataset.value / 1000 + "KB";
     });
 
     g.addEventListener("mouseleave", function (e) {
