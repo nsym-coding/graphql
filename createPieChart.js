@@ -128,6 +128,12 @@ const xpPieChart = (xpPerTypeData) => {
       typeAmount.innerHTML = e.target.dataset.value;
     });
 
+    g.addEventListener("mouseleave", function (e) {
+      typeName.innerHTML = "";
+
+      typeAmount.innerHTML = "";
+    });
+
     g.appendChild(pieSlice);
 
     pieChart.appendChild(g);
